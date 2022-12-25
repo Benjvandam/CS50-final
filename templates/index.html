@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+<form action="/" method="post">
+    <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Create Job</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col">Date</th>
+            <th class="col">Worker</th>
+            <th class="col">Creator</th>
+            <th class="col">Status</th>
+            <th class="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for job in alljobs%}
+    <tr>
+        <td>{{ job.date }}</td>
+        <td>{{ job.worker_name }}</td>
+        <td>{{ job.creator_name }}</td>
+        <td>{{ job.status }}</td>
+        <td>{{ job.description }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Job
+{% endblock %}
+
+{% block main %}
+<form action="/create" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="date" name="date" placeholder="Date" type="date">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="descripton" name="description" placeholder="Description" type="text">
+    </div>
+    <div class="mb-3">
+        <select class="form-select mx-auto w-auto" name="worker">
+            <option disabled selected>Select Worker</option>
+            {% for worker in workers%}
+            <option value="{{ worker.username }}">{{ worker.username }}</option>
+            {% endfor %}
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">Create Job</button>
+</form>
+{% endblock %}
